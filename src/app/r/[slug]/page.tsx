@@ -8,7 +8,6 @@ interface pageProps {
     params: {
         slug: string;
     }
-
 }
 
 const page = async ({ params }: pageProps) => {

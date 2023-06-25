@@ -193,14 +193,14 @@ const Layout = async ({
                                         isSubscribed={isSubscribed}
                                     />
                                 ) : null}
-                            {/* <Link
-                                    className={buttonVariants({
-                                        variant: 'outline',
-                                        className: 'w-full mb-6',
-                                    })}
-                                    href={`r/${slug}/submit`}>
-                                    Create Post
-                                </Link> */}
+                            <Link
+                                className={buttonVariants({
+                                    variant: 'outline',
+                                    className: 'w-full mb-6',
+                                })}
+                                href={`r/${slug}/submit`}>
+                                Create Post
+                            </Link>
                         </dl>
                     </div>
                 </div>
