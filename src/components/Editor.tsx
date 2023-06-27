@@ -44,6 +44,7 @@ const Editor: FC<EditorProps> = ({ subredditId }) => {
         const LinkTool = (await import('@editorjs/link')).default
         const InlineCode = (await import('@editorjs/inline-code')).default
         const ImageTool = (await import('@editorjs/image')).default
+
         if (!ref.current) {
             const editor = new EditorJS({
                 holder: 'editor',
@@ -106,6 +107,7 @@ const Editor: FC<EditorProps> = ({ subredditId }) => {
             }
         }
     }, [errors])
+
     useEffect(() => {
         const init = async () => {
             await initiliazeEditor();

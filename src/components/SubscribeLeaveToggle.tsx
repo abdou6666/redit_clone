@@ -88,7 +88,8 @@ const SubscribeLeaveToggle: FC<SubscribeLeaveToggleProps> = ({ subredditId, subr
             isLoading={isUnsubscribing}
             onClick={() => unSubscribe()}
             className='w-full mt-1 mb-4'
-        >Leave Community
+        >
+            Leave Community
         </Button>
     } else {
         return <Button
