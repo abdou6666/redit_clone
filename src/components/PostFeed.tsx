@@ -1,7 +1,7 @@
 "use client"
 
 import { ExtendedPosts } from '@/types/db'
-import { FC, useRef } from 'react'
+import { FC, useEffect, useRef } from 'react'
 import { useIntersection } from '@mantine/hooks'
 import { useInfiniteQuery } from '@tanstack/react-query'
 import { INFINITE_SCROLLING_PAGINATION_RESULTS } from '@/config'
@@ -39,7 +39,13 @@ const PostFeed: FC<PostFeedProps> = ({ initialPosts, subredditName }) => {
         initialData: { pages: [initialPosts], pageParams: [1] }
     });
 
-    const posts: ExtendedPosts[] = data?.pages.flatMap((pages) => pages) ?? initialPosts
+    const posts: ExtendedPosts[] = data?.pages.flatMap((pages) => pages) ?? initialPosts;
+    useEffect(() => {
+        if (entry?.isIntersecting) {
+            console.log('intesecting')
+            fetchNextPage()
+        }
+    }, [entry, fetchNextPage])
     return <ul className='flex flex-col col-span-2 space-y-6'>
         {posts.map((post: ExtendedPosts, index) => {
 
@@ -50,8 +56,7 @@ const PostFeed: FC<PostFeedProps> = ({ initialPosts, subredditName }) => {
             }, 0);
 
             const currentVote: Vote = post.votes.find((vote: Vote) => vote.userId === session?.user.id);
-            console.log({ currentVote })
-            if (index === post.length - 1) {
+            if (index === posts.length - 1) {
                 return <li key={post.id} ref={ref}>
                     <Post
                         subredditName={post.subredit.name}
