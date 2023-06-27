@@ -49,15 +49,27 @@ const PostFeed: FC<PostFeedProps> = ({ initialPosts, subredditName }) => {
                 return acc;
             }, 0);
 
-            const currentVote = post.votes.find((vote: Vote) => vote.userId === session?.user.id);
-
+            const currentVote: Vote = post.votes.find((vote: Vote) => vote.userId === session?.user.id);
+            console.log({ currentVote })
             if (index === post.length - 1) {
                 return <li key={post.id} ref={ref}>
-                    <Post subredditName={post.subredit.name} post={post} commentsAmount={post.comments.length} />
+                    <Post
+                        subredditName={post.subredit.name}
+                        post={post}
+                        commentsAmount={post.comments.length}
+                        currentVote={currentVote}
+                        votesAmount={votesAmount}
+
+                    />
                 </li>
             } else {
                 return <li key={post.id}>
-                    <Post subredditName={post.subredit.name} post={post} commentsAmount={post.comments.length} />
+                    <Post
+                        subredditName={post.subredit.name}
+                        post={post}
+                        commentsAmount={post.comments.length}
+                        currentVote={currentVote}
+                        votesAmount={votesAmount} />
                 </li>
             }
         })}
