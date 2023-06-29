@@ -42,7 +42,6 @@ const PostFeed: FC<PostFeedProps> = ({ initialPosts, subredditName }) => {
     const posts: ExtendedPosts[] = data?.pages.flatMap((pages) => pages) ?? initialPosts;
     useEffect(() => {
         if (entry?.isIntersecting) {
-            console.log('intesecting')
             fetchNextPage()
         }
     }, [entry, fetchNextPage])

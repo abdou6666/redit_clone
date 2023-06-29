@@ -47,6 +47,7 @@ export async function GET(req: Request) {
                     }
                 }
             }
+
             // todo : fix skiping formule when scrolling sometimes it refetchs the same data causing re render of the same component with same key
             const posts = await db.post.findMany({
                 take: parseInt(limit),
