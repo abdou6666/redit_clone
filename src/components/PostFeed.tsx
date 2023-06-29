@@ -81,3 +81,4 @@ const PostFeed: FC<PostFeedProps> = ({ initialPosts, subredditName }) => {
 }
 
 export default PostFeed
+

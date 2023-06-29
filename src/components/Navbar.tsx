@@ -4,6 +4,7 @@ import { Icons } from './icons'
 import { buttonVariants } from './ui/Button'
 import { getAuthSession } from '@/lib/auth'
 import UserAccountNav from './UserAccountNav'
+import SearchBar from './SearchBar'
 
 export default async function Navbar() {
     const session = await getAuthSession();
@@ -16,6 +17,7 @@ export default async function Navbar() {
                     <p className='hidden text-zinc-700 text-sm font-medium md:block'>Breadit</p>
                 </Link>
                 {/* Search Bar */}
+                <SearchBar />
 
                 {session?.user ? <UserAccountNav user={session.user} /> : (
                     <Link href="/sign-in" className={buttonVariants()}>Sign In</Link>
