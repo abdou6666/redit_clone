@@ -2,13 +2,12 @@ import UsernameForm from '@/components/ui/UsernameForm';
 import { authOptions, getAuthSession } from '@/lib/auth';
 import { Metadata } from 'next';
 import { redirect } from 'next/navigation';
-import { FC } from 'react';
 
 export const metadata: Metadata = {
     title: 'Settings',
     description: 'Manage Account and Web site settings'
 }
-const Page: FC = async () => {
+const Page = async () => {
     const session = await getAuthSession();
     if (!session?.user) {
         redirect(authOptions.pages?.signIn || '/sign-in');
