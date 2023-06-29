@@ -1,9 +1,8 @@
-import { NextAuthOptions, Session, getServerSession } from "next-auth";
-import { db } from "./db";
 import { PrismaAdapter } from '@next-auth/prisma-adapter';
-import GoogleProvider from 'next-auth/providers/google';
 import { nanoid } from 'nanoid';
-import { JWT } from "next-auth/jwt";
+import { NextAuthOptions, getServerSession } from "next-auth";
+import GoogleProvider from 'next-auth/providers/google';
+import { db } from "./db";
 
 
 export const authOptions: NextAuthOptions = {

@@ -1,13 +1,13 @@
 "use client"
 
-import { ExtendedPosts } from '@/types/db'
-import { FC, useEffect, useRef } from 'react'
-import { useIntersection } from '@mantine/hooks'
-import { useInfiniteQuery } from '@tanstack/react-query'
 import { INFINITE_SCROLLING_PAGINATION_RESULTS } from '@/config'
-import axios from 'axios'
+import { ExtendedPosts } from '@/types/db'
+import { useIntersection } from '@mantine/hooks'
 import { Vote } from '@prisma/client'
+import { useInfiniteQuery } from '@tanstack/react-query'
+import axios from 'axios'
 import { useSession } from 'next-auth/react'
+import { FC, useEffect, useRef } from 'react'
 import Post from './Post'
 
 interface PostFeedProps {

@@ -1,4 +1,3 @@
-import Signin from '@/components/Signin'
 import Signup from '@/components/Signup'
 import { buttonVariants } from '@/components/ui/Button'
 import { cn } from '@/lib/utils'

@@ -54,7 +54,7 @@ const UsernameForm: FC<UsernameFormProps> = ({ user }) => {
                 })
             }
         },
-        onSuccess: (_data) => {
+        onSuccess: () => {
             toast({
                 description: 'Your username has been updated.'
             })
