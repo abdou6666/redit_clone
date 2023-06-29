@@ -1,9 +1,10 @@
 import UsernameForm from '@/components/ui/UsernameForm';
 import { authOptions, getAuthSession } from '@/lib/auth';
+import { Metadata } from 'next';
 import { redirect } from 'next/navigation';
 import { FC } from 'react';
 
-export const Metadata = {
+export const metadata: Metadata = {
     title: 'Settings',
     description: 'Manage Account and Web site settings'
 }
